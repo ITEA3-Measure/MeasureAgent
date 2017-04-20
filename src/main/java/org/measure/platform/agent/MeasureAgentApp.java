@@ -8,7 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @EnableAutoConfiguration
 public class MeasureAgentApp {
 
-    public static void main(String[] args) {
-        SpringApplication.run(MeasureAgentApp.class, args);
+    public static void main(String[] args) {       
+        SpringApplication app = new SpringApplication(MeasureAgentApp.class);
+        app.setWebEnvironment(false);
+        app.run(args);   
     }
 }
