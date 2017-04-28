@@ -24,9 +24,6 @@ public class PlatformRegistrator implements SchedulingConfigurer {
 	@Value("${measure.server.adress}")
 	private String serverAdress;
 
-	@Value("${measure.callback.adress}")
-	private String callbackAdress;
-
 	@Value("${measure.agent.name}")
 	private String agentName;
 
@@ -54,8 +51,6 @@ public class PlatformRegistrator implements SchedulingConfigurer {
 	
 	private void registerMeasures(){
 		for (SMMMeasure measure : catalogueService.getAllMeasures()) {
-
-			measure.setCallbackAdress(callbackAdress);
 			measure.setCallbackLable(agentName);
 			measure.setName(measure.getName() + " (" + agentName + ")");
 

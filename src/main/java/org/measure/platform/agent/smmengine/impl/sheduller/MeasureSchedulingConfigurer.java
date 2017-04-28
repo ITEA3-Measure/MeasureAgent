@@ -31,9 +31,6 @@ public class MeasureSchedulingConfigurer implements SchedulingConfigurer {
 	@Value("${measure.server.adress}")
 	private String serverAdress;
 
-	@Value("${measure.callback.adress}")
-	private String callbackAdress;
-
 	@Value("${measure.agent.name}")
 	private String agentName;
 	
@@ -63,7 +60,7 @@ public class MeasureSchedulingConfigurer implements SchedulingConfigurer {
 			System.out.println(url);
 			
 			MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
-			map.add("id", callbackAdress);
+			map.add("id", agentName);
 			
 
 

@@ -28,9 +28,6 @@ public class RemoteExecutionService implements IRemoteExecutionService {
 	@Value("${measure.server.adress}")
 	private String serverAdress;
 
-	@Value("${measure.callback.adress}")
-	private String callbackAdress;
-
 	@Value("${measure.agent.name}")
 	private String agentName;
 
