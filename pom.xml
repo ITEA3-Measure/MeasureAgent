@@ -5,7 +5,7 @@
 
 	<groupId>org.measure.platform</groupId>
 	<artifactId>measure-agent</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>org.measure.smmmeasure.api</groupId>
 			<artifactId>SMMMeasureApi</artifactId>
-			<version>0.2.08</version>
+			<version>0.4.00</version>
 		</dependency>
 
 		<dependency>

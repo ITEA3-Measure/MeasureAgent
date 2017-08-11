@@ -53,7 +53,7 @@ public class RemoteExecutionService implements IRemoteExecutionService {
 				List<IMeasurement> measurements = measure.getMeasurement();
 
 				for (String key : ollProperties.keySet()) {
-					if (!ollProperties.get(key).equals(measure.getProperties().get(key))) {
+					if (ollProperties.get(key) != null && !ollProperties.get(key).equals(measure.getProperties().get(key))) {
 						executionLog.getUpdatedParameters().put(key, measure.getProperties().get(key));
 					}
 				}

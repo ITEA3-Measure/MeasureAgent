@@ -51,9 +51,8 @@ public class PlatformRegistrator implements SchedulingConfigurer {
 	
 	private void registerMeasures(){
 		for (SMMMeasure measure : catalogueService.getAllMeasures()) {
-			measure.setCallbackLable(agentName);
 			measure.setName(measure.getName() + " (" + agentName + ")");
-
+			measure.setAgentId(agentName);
 			RestTemplate restTemplate = new RestTemplate();
 			try {
 				log.info("Registration : " + measure.getName() + " http://" + serverAdress + REGISTRATION_API);
