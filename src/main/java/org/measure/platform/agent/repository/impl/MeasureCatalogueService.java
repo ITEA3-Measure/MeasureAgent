@@ -38,9 +38,11 @@ public class MeasureCatalogueService implements IMeasureCatalogueService {
 		List<SMMMeasure> result = new ArrayList<SMMMeasure>();
 		try {
 			File repository = new File(measurePath);
-			for (File file : repository.listFiles()) {
-				result.add(MeasurePackager.getMeasureData(file.toPath().resolve(MeasurePackager.MEATADATAFILE)));
-			}
+			if(repository.exists()){
+				for (File file : repository.listFiles()) {
+					result.add(MeasurePackager.getMeasureData(file.toPath().resolve(MeasurePackager.MEATADATAFILE)));
+				}
+			}		
 		} catch (JAXBException | IOException e) {
 			log.error(e.getLocalizedMessage());
 		}

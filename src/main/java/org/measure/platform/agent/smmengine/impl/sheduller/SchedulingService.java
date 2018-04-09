@@ -1,7 +1,6 @@
 package org.measure.platform.agent.smmengine.impl.sheduller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ScheduledFuture;
@@ -10,13 +9,11 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.measure.platform.agent.repository.api.IMeasureCatalogueService;
-import org.measure.platform.agent.serviceregistrator.PlatformRegistrator;
 import org.measure.platform.agent.smmengine.api.IRemoteExecutionService;
 import org.measure.platform.agent.smmengine.api.IShedulingService;
 import org.measure.platform.agent.smmengine.impl.RemoteExecutionService;
 import org.measure.smm.log.MeasureLog;
 import org.measure.smm.measure.api.IDirectMeasure;
-import org.measure.smm.measure.api.IMeasure;
 import org.measure.smm.remote.RemoteMeasureInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -5,7 +5,7 @@
 
 	<groupId>org.measure.platform</groupId>
 	<artifactId>measure-agent</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -29,11 +29,11 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.measure.smmmeasure.api</groupId>
-			<artifactId>SMMMeasureApi</artifactId>
-			<version>0.4.00</version>
-		</dependency>
+        <dependency>
+            <groupId>org.measure.smmmeasure.api</groupId>
+            <artifactId>SMMMeasureApi</artifactId>
+            <version>0.6.01</version>
+        </dependency>
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -53,6 +53,12 @@
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.8-dmr</version>
 		</dependency>
 
 	</dependencies>
@@ -77,9 +83,9 @@
 			<url>https://repo.spring.io/libs-release</url>
 		</repository>
 		<repository>
-                         <id>Modelio</id>
-                         <url>http://repository.modelio.org/</url>
-               </repository>
+			<id>Modelio</id>
+			<url>http://repository.modelio.org/</url>
+		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>

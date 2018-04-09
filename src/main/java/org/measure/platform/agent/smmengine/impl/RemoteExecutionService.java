@@ -1,5 +1,6 @@
 package org.measure.platform.agent.smmengine.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,7 @@ import org.measure.platform.agent.smmengine.api.IRemoteExecutionService;
 import org.measure.smm.log.MeasureLog;
 import org.measure.smm.measure.api.IDirectMeasure;
 import org.measure.smm.measure.api.IMeasurement;
+import org.measure.smm.measure.defaultimpl.measurements.DefaultMeasurement;
 import org.measure.smm.remote.RemoteMeasureInstance;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +41,8 @@ public class RemoteExecutionService implements IRemoteExecutionService {
 		MeasureLog executionLog = new MeasureLog();
 
 		executionLog.setMeasureInstanceName(measureData.getInstanceName());
-		executionLog.setMeasureName(measureData.getMeasureName());
+		String measureName = measureData.getMeasureName().replace(" ("+agentName+")", "");
+		executionLog.setMeasureName(measureName);
 		executionLog.setMeasureInstanceId(measureData.getMeasureId());
 
 		try {
@@ -51,6 +54,17 @@ public class RemoteExecutionService implements IRemoteExecutionService {
 
 				Date start = new Date();
 				List<IMeasurement> measurements = measure.getMeasurement();
+				
+				
+				List<DefaultMeasurement> defaultMeasurements = new ArrayList<>();
+				for (IMeasurement measirement : measurements) {
+					DefaultMeasurement newDef = new DefaultMeasurement();
+				
+					for(Entry<String,Object> entry : measirement.getValues().entrySet()){
+						newDef.addValue(entry.getKey(), entry.getValue());
+					}
+					defaultMeasurements.add(newDef);
+				}
 
 				for (String key : ollProperties.keySet()) {
 					if (ollProperties.get(key) != null && !ollProperties.get(key).equals(measure.getProperties().get(key))) {
@@ -60,7 +74,7 @@ public class RemoteExecutionService implements IRemoteExecutionService {
 
 				executionLog.setExectionDate(new Date());
 				executionLog.setExecutionTime(new Date().getTime() - start.getTime());
-				executionLog.setMesurement(measurements);
+				executionLog.setMesurement(defaultMeasurements);
 				executionLog.setSuccess(true);
 
 				// Store Updated Properties
