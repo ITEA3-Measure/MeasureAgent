@@ -7,10 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.inject.Inject;
-import javax.print.attribute.HashAttributeSet;
-
-import org.measure.platform.agent.repository.api.IMeasureCatalogueService;
 import org.measure.platform.agent.smmengine.api.IRemoteExecutionService;
 import org.measure.smm.log.MeasureLog;
 import org.measure.smm.measure.api.IDirectMeasure;
@@ -91,7 +87,7 @@ public class RemoteExecutionService implements IRemoteExecutionService {
 			executionLog.setSuccess(false);
 		}
 
-		sendExecutionResult(executionLog);
+		//sendExecutionResult(executionLog);
 
 		return executionLog;
 	}

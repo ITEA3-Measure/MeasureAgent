@@ -63,7 +63,8 @@ public class SchedulingService implements IShedulingService {
 				@Override
 				public void run() {
 					// Execute Measure
-					measureExecutionService.executeMeasure(measure, measureImpl);
+					MeasureLog result =measureExecutionService.executeMeasure(measure, measureImpl);
+					measureExecutionService.sendExecutionResult(result);
 				}
 			}, rate);
 			this.jobs.put(measure.getMeasureId(), job);
